@@ -80,4 +80,8 @@ public class StringCalculatorTest {
         assertEquals(11, StringCalculator.Add("//[*]\n1*2*4,3\n1"));
     }
 
+    @Test
+    public void testMultipleCustomDelimitersWithMultipleCharacters() {
+        assertEquals(14, StringCalculator.Add("//[****][**]\n1****2**3,3\n5"));
+    }
 }
