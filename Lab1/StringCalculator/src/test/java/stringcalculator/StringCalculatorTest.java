@@ -41,4 +41,23 @@ public class StringCalculatorTest {
     public void testOneCustomDelim2() {
         assertEquals(23, StringCalculator.Add("//[m]\n1m2,2\n10m8"));
     }
+
+    @Test
+    public void testNegativeNumbers1() {
+        try {
+            StringCalculator.Add("1,-2,3,-4");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Negatives not allowed: [-2, -4]", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNegativeNumbers2() {
+        try {
+            StringCalculator.Add("//[m]\n1m-2,-9\n10m8");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Negatives not allowed: [-2, -9]", e.getMessage());
+        }
+    }
+
 }
