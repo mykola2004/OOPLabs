@@ -27,5 +27,17 @@ public class StringCalculatorTest {
     public void testFourNumbers() {
         assertEquals(5, StringCalculator.Add("1,2,1,1"));
     }
+    @Test
+    public void testComaNewline() {
+        assertEquals(5, StringCalculator.Add("1,2,1\n1"));
+    }
+    @Test
+    public void testComaComa() {
+        try {
+            StringCalculator.Add("1\n\n2,1,1");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Invalid input: Two delimiters without a number in between.", e.getMessage());
+        }
+    }
 
 }

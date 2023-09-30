@@ -7,14 +7,18 @@ public class StringCalculator {
             return 0;
         }
 
-        String[] numberArray = numbers.split(",");
+        String[] numberArray = numbers.split("[,\n]");
         int sum = 0;
 
         for (String num : numberArray) {
-            sum += Integer.parseInt(num);
+            if (num.isEmpty()) {
+                throw new IllegalArgumentException("Invalid input: Two delimiters without a number in between.");
+            }
+            if (!num.trim().isEmpty()) {
+                sum += Integer.parseInt(num);
+            }
         }
 
         return sum;
     }
-
 }
