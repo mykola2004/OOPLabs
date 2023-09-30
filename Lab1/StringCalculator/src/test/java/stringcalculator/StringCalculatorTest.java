@@ -54,10 +54,15 @@ public class StringCalculatorTest {
     @Test
     public void testNegativeNumbers2() {
         try {
-            StringCalculator.Add("//[m]\n1m-2,-9\n10m8");
+            StringCalculator.Add("//[m]\n1m-2,-9\n1m8");
         } catch (IllegalArgumentException e) {
             assertEquals("Negatives not allowed: [-2, -9]", e.getMessage());
         }
+    }
+
+    @Test
+    public void testNumbersLargerThan1000() {
+        assertEquals(25, StringCalculator.Add("//[s]\n3s4,9002\n10s8"));
     }
 
 }

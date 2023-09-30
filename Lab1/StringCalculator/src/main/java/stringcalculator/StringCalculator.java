@@ -39,7 +39,9 @@ public class StringCalculator {
                 if (parsedNum < 0) {
                     negativeNumbers.add(parsedNum);
                 }
-                sum += parsedNum;
+                else if (parsedNum <= 1000) {
+                    sum += parsedNum;
+                }
             }
         }
 
