@@ -7,7 +7,7 @@ public class Main {
         String input1 = "";           // Empty string
         String input2 = "1";          // Single number
         String input3 = "1,2";        // Two numbers
-        String input4 = "1\n2,3";     // New lines and commas as separators
+        String input4 = "//;\n1\n2;3,1";     // New lines and commas as separators
         String input5 = "1\n2\n3,4";  // Multiple new lines
 
         System.out.println("Result 1: " + StringCalculator.Add(input1)); // Output: 0

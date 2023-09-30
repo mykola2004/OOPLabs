@@ -31,13 +31,14 @@ public class StringCalculatorTest {
     public void testComaNewline() {
         assertEquals(5, StringCalculator.Add("1,2,1\n1"));
     }
+
     @Test
-    public void testComaComa() {
-        try {
-            StringCalculator.Add("1\n\n2,1,1");
-        } catch (IllegalArgumentException e) {
-            assertEquals("Invalid input: Two delimiters without a number in between.", e.getMessage());
-        }
+    public void testOneCustomDelim1() {
+        assertEquals(7, StringCalculator.Add("//;\n1;2,2\n2"));
     }
 
+    @Test
+    public void testOneCustomDelim2() {
+        assertEquals(23, StringCalculator.Add("//[m]\n1m2,2\n10m8"));
+    }
 }

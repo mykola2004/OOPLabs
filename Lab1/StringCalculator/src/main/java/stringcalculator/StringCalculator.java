@@ -7,13 +7,29 @@ public class StringCalculator {
             return 0;
         }
 
+        if (numbers.startsWith("//")) {
+            if (numbers.contains("[")) {
+                int delimiterEnd = numbers.indexOf("\n");
+                if (delimiterEnd != -1) {
+                    String customDelimiter = numbers.substring(3, delimiterEnd-1);
+                    numbers = numbers.substring(delimiterEnd + 1);
+                    numbers = numbers.replace(customDelimiter, ",");
+                }
+            }
+            else{
+                int delimiterEnd = numbers.indexOf("\n");
+                if (delimiterEnd != -1) {
+                    String customDelimiter = numbers.substring(2, delimiterEnd);
+                    numbers = numbers.substring(delimiterEnd + 1);
+                    numbers = numbers.replace(customDelimiter, ",");
+                }
+            }
+        }
+
         String[] numberArray = numbers.split("[,\n]");
         int sum = 0;
 
         for (String num : numberArray) {
-            if (num.isEmpty()) {
-                throw new IllegalArgumentException("Invalid input: Two delimiters without a number in between.");
-            }
             if (!num.trim().isEmpty()) {
                 sum += Integer.parseInt(num);
             }
