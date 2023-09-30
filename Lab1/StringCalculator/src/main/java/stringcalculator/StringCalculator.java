@@ -10,8 +10,21 @@ public class StringCalculator {
             return 0;
         }
 
-        if (numbers.startsWith("//")) {
-            if(numbers.contains("[")) {
+        if (numbers.startsWith("//") && (numbers.contains("][")) ) {
+            int delimiterStart = numbers.indexOf("//")+2;
+            int delimiterEnd = numbers.indexOf("\n")-1;
+            if (delimiterStart != -1 && delimiterEnd != -1) {
+                String customDelimiters = numbers.substring(delimiterStart + 1, delimiterEnd);
+                numbers = numbers.substring(delimiterEnd + 2);
+                for (String delimiter : customDelimiters.split("\\]\\[")) {
+                    numbers = numbers.replace(delimiter, ",");
+                }
+            }
+        }
+
+        if (numbers.startsWith("//") && !(numbers.contains("]["))) {
+
+            if (numbers.contains("[")) {
                 int delimiterEnd = numbers.indexOf("\n");
                 if (delimiterEnd != -1) {
                     String customDelimiter = numbers.substring(3, delimiterEnd-1);
@@ -19,7 +32,7 @@ public class StringCalculator {
                     numbers = numbers.replace(customDelimiter, ",");
                 }
             }
-            else{
+            else {
                 int delimiterEnd = numbers.indexOf("\n");
                 if (delimiterEnd != -1) {
                     String customDelimiter = numbers.substring(2, delimiterEnd);
@@ -38,8 +51,7 @@ public class StringCalculator {
                 int parsedNum = Integer.parseInt(num);
                 if (parsedNum < 0) {
                     negativeNumbers.add(parsedNum);
-                }
-                else if (parsedNum <= 1000) {
+                } else if (parsedNum <= 1000) {
                     sum += parsedNum;
                 }
             }

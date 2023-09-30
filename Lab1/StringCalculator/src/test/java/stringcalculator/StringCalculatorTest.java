@@ -70,4 +70,14 @@ public class StringCalculatorTest {
         assertEquals(23, StringCalculator.Add("//[(((]\n1(((2,2\n10(((8"));
     }
 
+    @Test
+    public void testMultipleCustomDelimiters() {
+        assertEquals(19, StringCalculator.Add("//[*][%]\n10*2%3,3\n1"));
+    }
+
+    @Test
+    public void testSingleCustomDelimiter() {
+        assertEquals(11, StringCalculator.Add("//[*]\n1*2*4,3\n1"));
+    }
+
 }
