@@ -1,8 +1,7 @@
 package stringcalculator;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class StringCalculator {
+
     public static int Add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
@@ -17,4 +16,5 @@ public class StringCalculator {
 
         return sum;
     }
+
 }

@@ -22,4 +22,10 @@ public class StringCalculatorTest {
     public void testTwoNumbers() {
         assertEquals(3, StringCalculator.Add("1,2"));
     }
+
+    @Test
+    public void testFourNumbers() {
+        assertEquals(5, StringCalculator.Add("1,2,1,1"));
+    }
+
 }
