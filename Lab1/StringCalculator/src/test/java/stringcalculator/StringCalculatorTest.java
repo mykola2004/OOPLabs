@@ -65,4 +65,9 @@ public class StringCalculatorTest {
         assertEquals(25, StringCalculator.Add("//[s]\n3s4,9002\n10s8"));
     }
 
+    @Test
+    public void testLongDelim() {
+        assertEquals(23, StringCalculator.Add("//[(((]\n1(((2,2\n10(((8"));
+    }
+
 }
