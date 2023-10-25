@@ -30,7 +30,20 @@ public class Program {
             }
         }
 
+        public void fillMatrix(double value) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    data[i][j] = value;
+                }
+            }
+        }
         
+        public void setValue(int row, int column, double value) {
+            if (row < 0 || row >= rows || column < 0 || column >= columns) {
+                throw new IllegalArgumentException("Invalid matrix indices");
+            }
+            data[row][column] = value;
+        }
 
     }
 
