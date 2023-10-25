@@ -37,12 +37,27 @@ public class Program {
                 }
             }
         }
-        
+
         public void setValue(int row, int column, double value) {
             if (row < 0 || row >= rows || column < 0 || column >= columns) {
                 throw new IllegalArgumentException("Invalid matrix indices");
             }
             data[row][column] = value;
+        }
+
+        public int getRows() {
+            return rows;
+        }
+
+        public int getColumns() {
+            return columns;
+        }
+
+        public double get(int row, int column) {
+            if (row < 0 || row >= rows || column < 0 || column >= columns) {
+                throw new IllegalArgumentException("Invalid matrix indices");
+            }
+            return data[row][column];
         }
 
     }
