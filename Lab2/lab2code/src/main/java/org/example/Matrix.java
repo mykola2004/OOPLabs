@@ -28,7 +28,18 @@ public class Matrix {
             }
         }
     }
+    
+    public void fillMatrix() {
+        Scanner scanner = new Scanner(System.in);
 
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Enter the value for cell (" + i + ", " + j + "): ");
+                double value = scanner.nextDouble();
+                data[i][j] = value;
+            }
+        }
+    }
 
 
 }
