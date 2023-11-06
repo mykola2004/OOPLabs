@@ -117,5 +117,68 @@ public class Matrix {
         return result;
     }
 
+    public final class ImmutableMatrix {
+        private final int rows;
+        private final int columns;
+        private final double[][] data;
 
+        public ImmutableMatrix(int rows, int columns, double[][] data) {
+            this.rows = rows;
+            this.columns = columns;
+            this.data = new double[rows][columns];
+
+            for (int i = 0; i < rows; i++) {
+                System.arraycopy(data[i], 0, this.data[i], 0, columns);
+            }
+        }
+
+        public int getRows() {
+            return rows;
+        }
+
+        public int getColumns() {
+            return columns;
+        }
+
+        public double get(int row, int column) {
+            //if (row < 0 || row >= rows || column < 0 || column >= columns) {
+            //    throw new IllegalArgumentException("Invalid row or column index");
+            //}
+            return data[row][column];
+        }
+
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            ImmutableMatrix otherMatrix = (ImmutableMatrix) obj;
+            if (rows != otherMatrix.rows || columns != otherMatrix.columns) {
+                return false;
+            }
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    if (data[i][j] != otherMatrix.data[i][j]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            int result = Objects.hash(rows, columns);
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    result = 31 * result + Double.hashCode(data[i][j]);
+                }
+            }
+            return result;
+        }
+    }
 }
