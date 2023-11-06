@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Matrix {
@@ -68,5 +69,53 @@ public class Matrix {
         int[] dimensions = {rows, columns};
         return dimensions;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Matrix otherMatrix = (Matrix) obj;
+        if (rows != otherMatrix.rows || columns != otherMatrix.columns) {
+            return false;
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (data[i][j] != otherMatrix.data[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        if (rows == 0 && rows == 0){
+            if (data[0][0] != otherMatrix.data[0][0]){
+                return false;
+            }
+
+        }
+
+        return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(rows, columns);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result = 31 * result + Double.hashCode(data[i][j]);
+            }
+        }
+
+        if (rows == 0 && rows == 0){
+            result = 31 * result + Double.hashCode(data[0][0]);
+        }
+
+        return result;
+    }
+
 
 }
