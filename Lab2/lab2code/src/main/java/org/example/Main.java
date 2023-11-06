@@ -11,9 +11,12 @@ public class Main {
         System.out.println(mat1.get(1,0));
         mat1.fillMatrix();
         System.out.println(mat1.get(1,0));
+        System.out.println(mat1.getDimensions()[0]);
+
         org.example.Matrix mat2 = new org.example.Matrix(mat1);
         System.out.println(mat2.getRows());
         System.out.println(mat2.getColumns());
         System.out.println(mat2.get(1,1));
+        System.out.println(mat2.getDimensions()[0]);
     }
 }

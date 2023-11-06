@@ -64,5 +64,9 @@ public class Matrix {
         return data[row][column];
     }
 
+    public int[] getDimensions() {
+        int[] dimensions = {rows, columns};
+        return dimensions;
+    }
 
 }
