@@ -211,4 +211,33 @@ public class Matrix {
     }
 
 
+    public void multiplyByMatrix(Matrix other) {
+        if (this.columns != other.rows) {
+            throw new IllegalArgumentException("Matrix dimensions must match for multiplication");
+        }
+
+        if (this.rows == 0 && other.columns == 0){
+            this.data[0][0] = this.data[0][0] * other.data[0][0];
+            System.out.print(this.data[0][0]);
+            this.columns = 0;
+            this.rows = 0;
+
+        }
+        else{
+            double[][] result = new double[this.rows][other.columns];
+
+            for (int i = 0; i < this.rows; i++) {
+                for (int j = 0; j < other.columns; j++) {
+                    for (int k = 0; k < this.columns; k++) {
+                        result[i][j] += this.data[i][k] * other.data[k][j];
+                    }
+                    System.out.print(result[i][j]);
+                    System.out.print(' ');
+                }
+                System.out.println();
+            }
+            this.columns = other.columns;
+            this.data = result;
+        }
+    }
 }
