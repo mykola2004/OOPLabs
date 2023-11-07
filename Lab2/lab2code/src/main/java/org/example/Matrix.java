@@ -90,7 +90,7 @@ public class Matrix {
             }
         }
 
-        if (rows == 0 && rows == 0){
+        if (rows == 0 && columns == 0){
             if (data[0][0] != otherMatrix.data[0][0]){
                 return false;
             }
@@ -181,4 +181,22 @@ public class Matrix {
             return result;
         }
     }
+
+    public void addMatrix(Matrix other) {
+        if (this.rows != other.rows || this.columns != other.columns) {
+            throw new IllegalArgumentException("Matrix dimensions must match for addition");
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                this.data[i][j] += other.data[i][j];
+            }
+        }
+
+        if (rows == 0 && columns == 0){
+            this.data[0][0] += other.data[0][0];
+        }
+    }
+
+
 }
