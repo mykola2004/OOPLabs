@@ -198,5 +198,17 @@ public class Matrix {
         }
     }
 
+    public void multiplyByScalar(double scalar) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                this.data[i][j] *= scalar;
+            }
+        }
+
+        if (rows == 0 && columns == 0){
+            this.data[0][0] *= scalar;
+        }
+    }
+
 
 }
