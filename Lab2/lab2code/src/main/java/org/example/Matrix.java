@@ -240,4 +240,20 @@ public class Matrix {
             this.data = result;
         }
     }
+
+    public void printMatrix() {
+        if (rows == 0 && columns == 0){
+            System.out.println(data[0][0]);
+        }
+        else{
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    System.out.print(data[i][j] + "\t");
+                }
+                System.out.println();
+            }
+
+        }
+    }
+
 }
