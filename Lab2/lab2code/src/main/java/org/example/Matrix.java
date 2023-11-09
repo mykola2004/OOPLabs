@@ -331,4 +331,26 @@ public class Matrix {
         return columnMatrix;
     }
 
+    public void toUpperTriangular() {
+        for (int i = 0; i < Math.min(data.length, data[0].length); i++) {
+            for (int j = i + 1; j < data.length; j++) {
+                double factor = data[j][i] / data[i][i];
+                for (int k = i; k < data[0].length; k++) {
+                    data[j][k] -= factor * data[i][k];
+                }
+            }
+        }
+    }
+
+    public void toLowerTriangular() {
+        for (int i = Math.min(data.length, data[0].length) - 1; i >= 0; i--) {
+            for (int j = i - 1; j >= 0; j--) {
+                double factor = data[j][i] / data[i][i];
+                for (int k = i; k >= 0; k--) {
+                    data[j][k] -= factor * data[i][k];
+                }
+            }
+        }
+    }
+
 }
