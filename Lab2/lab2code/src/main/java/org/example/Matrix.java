@@ -256,4 +256,19 @@ public class Matrix {
         }
     }
 
+    public void transpose() {
+        double[][] transposedData = new double[columns][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                transposedData[j][i] = data[i][j];
+            }
+        }
+
+        data = transposedData;
+        int temp = rows;
+        rows = columns;
+        columns = temp;
+    }
+
 }
