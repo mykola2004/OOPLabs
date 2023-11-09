@@ -271,4 +271,19 @@ public class Matrix {
         columns = temp;
     }
 
+    public void setValue(int row, int col, double value) {
+        if (row >= 0 && row < data.length && col >= 0 && col < data[row].length) {
+            data[row][col] = value;
+        } else {
+            throw new IndexOutOfBoundsException("Invalid row or column index.");
+        }
+    }
+
+    public static Matrix createDiagonal(double[] vector) {
+        Matrix diagonalMatrix = new Matrix(vector.length, vector.length);
+        for (int i = 0; i < vector.length; i++) {
+            diagonalMatrix.setValue(i, i, vector[i]);
+        }
+        return diagonalMatrix;
+    }
 }
