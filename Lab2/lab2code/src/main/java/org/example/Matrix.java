@@ -1,5 +1,6 @@
 package org.example;
 import java.util.Objects;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Matrix {
@@ -294,4 +295,36 @@ public class Matrix {
         }
         return identityMatrix;
     }
+
+    public static Matrix createStringMatrixWithRandomValues(int rows, int cols, int maxRandomValue) {
+        Matrix stringMatrix = new Matrix(rows, cols);
+        Random random = new Random();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                int randomValue = random.nextInt(maxRandomValue);
+                stringMatrix.setValue(i, j, randomValue);
+            }
+        }
+        return stringMatrix;
+    }
+
+    // Method to fill the matrix with random values, given the range for random numbers
+    public void fillWithRandomValues(double minValue, double maxValue) {
+        Random random = new Random();
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                data[i][j] = minValue + (maxValue - minValue) * random.nextDouble();
+            }
+        }
+    }
+
+    public static Matrix createRowMatrixWithRandomValues(int n, double minValue, double maxValue) {
+        Matrix rowMatrix = new Matrix(1, n);
+        rowMatrix.fillWithRandomValues(minValue, maxValue);
+        return rowMatrix;
+    }
+
+
+
 }
