@@ -10,7 +10,7 @@ public class Main {
         mat1.printMatrix();
         org.example.Matrix mat2 = new org.example.Matrix();
         double[] numbers = {1.0, 2.0, 3.0, 4.0};
-        mat1 = mat1.createDiagonal(numbers);
+        mat1 = mat1.createIdentity(10);
         mat1.printMatrix();
     }
 }

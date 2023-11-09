@@ -286,4 +286,12 @@ public class Matrix {
         }
         return diagonalMatrix;
     }
+
+    public static Matrix createIdentity(int size) {
+        Matrix identityMatrix = new Matrix(size, size);
+        for (int i = 0; i < size; i++) {
+            identityMatrix.setValue(i, i, 1.0);
+        }
+        return identityMatrix;
+    }
 }
