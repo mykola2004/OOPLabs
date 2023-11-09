@@ -325,6 +325,10 @@ public class Matrix {
         return rowMatrix;
     }
 
-
+    public static Matrix createColumnMatrixWithRandomValues(int n, double minValue, double maxValue) {
+        Matrix columnMatrix = new Matrix(n, 1);
+        columnMatrix.fillWithRandomValues(minValue, maxValue);
+        return columnMatrix;
+    }
 
 }
